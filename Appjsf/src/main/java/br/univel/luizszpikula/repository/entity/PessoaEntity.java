@@ -19,7 +19,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_pessoa")
-@NamedQueries({ @NamedQuery(name = "PessoaEntity.findAll",query= "SELECT p FROM PessoaEntity p") }) // o NamedQuery PessoaEntity.findAll vai retornar todos os registros cadastrados no nosso banco de dados.
+@NamedQueries({
+	@NamedQuery(name = "PessoaEntity.findAll",query= "SELECT p FROM PessoaEntity p"), // o NamedQuery PessoaEntity.findAll vai retornar todos os registros cadastrados no nosso banco de dados.
+	@NamedQuery(name="PessoaEntity.GroupByOrigemCadastro",query= "SELECT p.origemCadastro, count(p) as total FROM PessoaEntity p GROUP By p.origemCadastro") //vai retornar o total de pessoas por origem de cadastro
+})
+
 public class PessoaEntity {
 
 	@Id
