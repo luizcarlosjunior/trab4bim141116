@@ -57,7 +57,7 @@ public class ConsultarPessoaController implements Serializable {
 
 	/***
 	 * CARREGA INFORMAÇÕES DE UMA PESSOA PARA SER EDITADA
-	 * @param pessoaModel
+	 * @param PessoaModel pessoaModel
 	 */
 	public void Editar(PessoaModel pessoaModel){
 

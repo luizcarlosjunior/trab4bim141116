@@ -12,6 +12,11 @@ import javax.inject.Named;
 import br.univel.luizszpikula.model.PessoaModel;
 import br.univel.luizszpikula.repository.PessoaRepository;
 
+/**
+* Controlador para Consultar Pessoas em modo Carrossel
+* @author Luiz Carlos Szpikula Junior
+*/
+
 @Named(value="consultarPessoaCarouselController")
 @ViewScoped
 public class ConsultarPessoaCarouselController implements Serializable {
@@ -28,10 +33,12 @@ public class ConsultarPessoaCarouselController implements Serializable {
 		return pessoas;
 	}
 
+	/***
+	 * Inicializador
+	 */
 	@PostConstruct
 	private void init(){
-
-		this.pessoas = pessoaRepository.GetPessoas();
+		this.pessoas = pessoaRepository.GetPessoas(); //busca todos os registros
 	}
 
 
