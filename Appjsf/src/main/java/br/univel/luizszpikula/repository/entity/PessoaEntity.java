@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,6 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tb_pessoa")
+@NamedQueries({ @NamedQuery(name = "PessoaEntity.findAll",query= "SELECT p FROM PessoaEntity p") }) // o NamedQuery PessoaEntity.findAll vai retornar todos os registros cadastrados no nosso banco de dados.
 public class PessoaEntity {
 
 	@Id
