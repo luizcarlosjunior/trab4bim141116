@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+/**
+* Anotações de persistência para os dados de Usuários
+* @author Luiz Carlos Szpikula Junior
+*/
+
 @Table(name="tb_usuario")
 @Entity
 @NamedQuery(name = "UsuarioEntity.findUser",

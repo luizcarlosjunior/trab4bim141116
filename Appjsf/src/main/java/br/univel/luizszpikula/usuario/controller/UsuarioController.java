@@ -14,6 +14,11 @@ import br.univel.luizszpikula.repository.UsuarioRepository;
 import br.univel.luizszpikula.repository.entity.UsuarioEntity;
 import br.univel.luizszpikula.uteis.Uteis;
 
+/**
+* Controlador para Usuários
+* @author Luiz Carlos Szpikula Junior
+*/
+
 @Named(value="usuarioController")
 @SessionScoped
 public class UsuarioController implements Serializable {
@@ -29,13 +34,28 @@ public class UsuarioController implements Serializable {
 	@Inject
 	private UsuarioEntity usuarioEntity;
 
+
+	/**
+	* retorna um modelo de usuário
+	* @return UsuarioModel
+	*/
 	public UsuarioModel getUsuarioModel() {
 		return usuarioModel;
 	}
+
+	/**
+	* seta um modelo de usuário
+	* @param UsuarioModel usuarioModel
+	*/
 	public void setUsuarioModel(UsuarioModel usuarioModel) {
 		this.usuarioModel = usuarioModel;
 	}
 
+
+	/**
+	* retorna um modelo de usuário da sessão
+	* @return UsuarioModel
+	*/
 	public UsuarioModel GetUsuarioSession(){
 
 		FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -43,12 +63,21 @@ public class UsuarioController implements Serializable {
 		return (UsuarioModel)facesContext.getExternalContext().getSessionMap().get("usuarioAutenticado");
 	}
 
+	/**
+	* Desconecta o usuário e retorna o endereço para redirect
+	* @return String endereço de redirect
+	*/
 	public String Logout(){
 
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession(); // reset na session
 
-		return "/index.xhtml?faces-redirect=true";
+		return "/index.xhtml?faces-redirect=true"; //redirect
 	}
+	
+	/**
+	* Função para efetuar login
+	* @return String endereço de redirect
+	*/
 	public String EfetuarLogin(){
 
 		if(StringUtils.isEmpty(usuarioModel.getUsuario()) || StringUtils.isBlank(usuarioModel.getUsuario())){

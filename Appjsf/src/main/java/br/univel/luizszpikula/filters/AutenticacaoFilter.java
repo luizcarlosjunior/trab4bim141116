@@ -14,17 +14,37 @@ import javax.servlet.http.HttpSession;
 
 import br.univel.luizszpikula.model.UsuarioModel;
 
+/**
+* Essa classe auxilia na autenticação do sistema.
+* @see javax.servlet.Filter
+* @author Luiz Carlos Szpikula Junior
+*/
+
 @WebFilter("/sistema/*")
 public class AutenticacaoFilter implements Filter {
 
+
+	/**
+	* O construtor AutenticacaoFilter sem argumento
+	*/
     public AutenticacaoFilter() {
 
     }
 
+	/**
+	* Método destroy
+	*/
 	public void destroy() {
 
 	}
 
+	/**
+	* Método doFilter
+	* @param ServletRequest
+	* @param ServletResponse
+	* @param FilterChain
+	* @throws
+	*/
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
 		HttpSession httpSession 				= ((HttpServletRequest) request).getSession();
@@ -53,6 +73,11 @@ public class AutenticacaoFilter implements Filter {
 		}
 	}
 
+
+	/**
+	* Método init
+	* @param FilterConfig
+	*/
 	public void init(FilterConfig fConfig) throws ServletException {
 
 	}
